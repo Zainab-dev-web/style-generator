@@ -2,9 +2,25 @@ var rectangle = document.querySelector('#rendu-rectangle');
 var buttons = document.querySelectorAll('#section-click button');
 var inputs = document.querySelectorAll('#section-change input');
 
-var tt= () => {
-  console.log(event.target.dataset);
-  console.log(window.getComputedStyle(event.target).backgroundColor);
+var clickStyle = (event) => {
+  console.log()
+  var prop = window.getComputedStyle(event.target)[event.target.dataset.style];
+  rectangle.style[event.target.dataset.style] = prop;
+};
+
+var changeStyle = (event) => {
+  var prop = event.target.value;
+  rectangle.style[event.target.dataset.style] = isNaN(prop) ? prop : prop + 'px';
 }
-buttons[1].addEventListener('click',tt);
-// console.log(buttons[1].dataset.style)
+
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    clickStyle(event);
+  });
+});
+
+inputs.forEach((input) => {
+  input.addEventListener("change", (event) => {
+    changeStyle(event);
+  })
+});
