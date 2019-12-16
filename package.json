@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "admin-lte": "^2.4.8"
+    "admin-lte": "^2.4.8",
+    "bootstrap": "^4.4.1"
   },
   "devDependencies": {},
   "scripts": {
